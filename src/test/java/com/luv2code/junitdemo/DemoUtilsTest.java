@@ -29,7 +29,7 @@ class DemoUtilsTest {
         System.out.println("After all executes once after all the test methods execution in the class");
     }
 
-
+    @DisplayName("Equals and Not Equals")
     @Test
     void testEqualsAndNotEquals() {
         System.out.println("Running test: testEqualsAndNotEquals");
@@ -37,6 +37,7 @@ class DemoUtilsTest {
         assertNotEquals(5, demoUtils.add(2, 4), "2 + 4 must be 6");
     }
 
+    @DisplayName("Null and Not NUll")
     @Test
     void testNullAndNotNull() {
         System.out.println("Running test: testNullAndNotNull");
