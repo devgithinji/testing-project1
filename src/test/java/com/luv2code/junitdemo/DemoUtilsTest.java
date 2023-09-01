@@ -34,6 +34,12 @@ class DemoUtilsTest {
         System.out.println("After all executes once after all the test methods execution in the class");
     }
 
+    @DisplayName("Multiply")
+    @Test
+    void testMultiply() {
+        assertEquals(15, demoUtils.multiply(5, 3));
+    }
+
     @DisplayName("Equals and Not Equals")
     @Test
     @Order(3)
@@ -75,6 +81,7 @@ class DemoUtilsTest {
 
     @DisplayName("Array Equals")
     @Test
+    @Order(-7)
     void testArrayEquals() {
         String[] stringArray = {"A", "B", "C"};
         assertArrayEquals(stringArray, demoUtils.getFirstThreeLettersOfAlphabet(), "Arrays should be equal");
