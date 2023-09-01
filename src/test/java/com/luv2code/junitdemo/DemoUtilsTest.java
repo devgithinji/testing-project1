@@ -2,6 +2,7 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -100,6 +101,15 @@ class DemoUtilsTest {
         assertDoesNotThrow(() -> {
             demoUtils.throwException(5);
         }, "should not throw exception");
+    }
+
+
+    @DisplayName("Timeout")
+    @Test
+    void testTimeout() {
+        assertTimeoutPreemptively(Duration.ofSeconds(5), () -> {
+            demoUtils.checkTimeout();
+        }, "Method should execute in 3 seconds");
     }
 
 
