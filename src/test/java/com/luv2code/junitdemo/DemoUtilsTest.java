@@ -2,9 +2,11 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+//@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils = null;
@@ -30,7 +32,7 @@ class DemoUtilsTest {
         System.out.println("After all executes once after all the test methods execution in the class");
     }
 
-    //    @DisplayName("Equals and Not Equals")
+    @DisplayName("Equals and Not Equals")
     @Test
     void testEqualsAndNotEquals() {
         System.out.println("Running test: testEqualsAndNotEquals");
@@ -38,7 +40,7 @@ class DemoUtilsTest {
         assertNotEquals(5, demoUtils.add(2, 4), "2 + 4 must be 6");
     }
 
-    //    @DisplayName("Null and Not NUll")
+    @DisplayName("Null and Not NUll")
     @Test
     void testNullAndNotNull() {
         System.out.println("Running test: testNullAndNotNull");
@@ -65,6 +67,27 @@ class DemoUtilsTest {
         int gradeTwo = 5;
         assertTrue(demoUtils.isGreater(gradeOne, gradeTwo), "This should be true");
         assertFalse(demoUtils.isGreater(gradeTwo, gradeOne), "This should be false");
+    }
+
+    @DisplayName("Array Equals")
+    @Test
+    void testArrayEquals() {
+        String[] stringArray = {"A", "B", "C"};
+        assertArrayEquals(stringArray, demoUtils.getFirstThreeLettersOfAlphabet(), "Arrays should be equal");
+    }
+
+    @DisplayName("Iterable equals")
+    @Test
+    void testIterableEquals() {
+        List<String> theList = List.of("luv", "2", "code");
+        assertIterableEquals(theList, demoUtils.getAcademyInList(), "Expected list should be same as actual list");
+    }
+
+    @DisplayName("Lines match")
+    @Test
+    void testIterableMatch() {
+        List<String> theList = List.of("luv", "2", "code");
+        assertLinesMatch(theList, demoUtils.getAcademyInList(), "Lines should match");
     }
 
 
