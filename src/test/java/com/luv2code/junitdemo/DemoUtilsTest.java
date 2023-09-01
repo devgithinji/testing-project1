@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils = null;
@@ -32,7 +32,7 @@ class DemoUtilsTest {
 
     //    @DisplayName("Equals and Not Equals")
     @Test
-    void testEqualsAndNotEquals() {
+    void test_Equals_And_Not_Equals() {
         System.out.println("Running test: testEqualsAndNotEquals");
         assertEquals(6, demoUtils.add(2, 4), "2 + 4 must be 6");
         assertNotEquals(5, demoUtils.add(2, 4), "2 + 4 must be 6");
@@ -40,7 +40,7 @@ class DemoUtilsTest {
 
     //    @DisplayName("Null and Not NUll")
     @Test
-    void testNullAndNotNull() {
+    void test_Null_And_Not_Null() {
         System.out.println("Running test: testNullAndNotNull");
         String str1 = null;
         String str2 = "dennis";
