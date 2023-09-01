@@ -1,21 +1,45 @@
 package com.luv2code.junitdemo;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemoUtilsTest {
 
+    DemoUtils demoUtils = null;
+
+    @BeforeEach
+    void setupBeforeEach() {
+        demoUtils = new DemoUtils();
+        System.out.println("@BeforeEach executes before the execution of each test method");
+    }
+
+    @AfterEach
+    void tearDownAfterEach() {
+        System.out.println("Running @AfterEach\n");
+    }
+
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.out.println("Before all executes once before all test methods execution in the class");
+    }
+
+    @AfterAll
+    static void setUpAfterAll() {
+        System.out.println("After all executes once after all the test methods execution in the class");
+    }
+
+
     @Test
     void testEqualsAndNotEquals() {
-        DemoUtils demoUtils = new DemoUtils();
+        System.out.println("Running test: testEqualsAndNotEquals");
         assertEquals(6, demoUtils.add(2, 4), "2 + 4 must be 6");
         assertNotEquals(5, demoUtils.add(2, 4), "2 + 4 must be 6");
     }
 
     @Test
     void testNullAndNotNull() {
-        DemoUtils demoUtils = new DemoUtils();
+        System.out.println("Running test: testNullAndNotNull");
         String str1 = null;
         String str2 = "dennis";
 
